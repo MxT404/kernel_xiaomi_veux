@@ -32,6 +32,7 @@ HOSTCFLAGS_extract-cert.o = $(CRYPTO_CFLAGS)
 HOSTLDLIBS_extract-cert = $(CRYPTO_LIBS)
 
 always		:= $(hostprogs-y) $(hostprogs-m)
+always		+= $(if $(CONFIG_LTO_CLANG),module-lto.lds)
 
 # The following hostprogs-y programs are only build on demand
 hostprogs-y += unifdef
